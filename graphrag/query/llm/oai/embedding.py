@@ -133,6 +133,7 @@ class OpenAIEmbedding(BaseTextEmbedding, OpenAILLMImpl):
                     embedding = (
                         self.sync_client.embeddings.create(  # type: ignore
                             input=text,
+                            encoding_format="float",
                             model=self.model,
                             **kwargs,  # type: ignore
                         )
@@ -166,6 +167,7 @@ class OpenAIEmbedding(BaseTextEmbedding, OpenAILLMImpl):
                     embedding = (
                         await self.async_client.embeddings.create(  # type: ignore
                             input=text,
+                            encoding_format="float",
                             model=self.model,
                             **kwargs,  # type: ignore
                         )
